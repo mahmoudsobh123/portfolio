@@ -30,12 +30,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const rightArrow = document.querySelector('.about-review-info-card .cross2');
     const reviewCards = document.querySelector('.about-review-info-card .about-review-info-card');
 
-    const scrollAmount = 300;
+    // حساب مقدار التمرير بناءً على عرض البطاقة
+    function getScrollAmount() {
+        return reviewCards.clientWidth * 0.8; // يمكنك تغيير النسبة كما تريد
+    }
 
     leftArrow.addEventListener('click', function() {
         reviewCards.scrollBy({
             top: 0,
-            left: -scrollAmount,
+            left: -getScrollAmount(),
             behavior: 'smooth'
         });
     });
@@ -43,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
     rightArrow.addEventListener('click', function() {
         reviewCards.scrollBy({
             top: 0,
-            left: scrollAmount,
+            left: getScrollAmount(),
             behavior: 'smooth'
         });
     });
